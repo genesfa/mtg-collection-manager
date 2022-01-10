@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>
+        menu
+      </mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/home">
+      Ranthas MTG Collection Manager
+    </a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>
+        menu
+      </mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item routerLink="/mtg/settings">
+        <mat-icon>
+          settings
+        </mat-icon>
+        <span>
+          Settings
+        </span>
+      </a>
+    </mat-menu>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,56 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card fxFlex.gt-xs="500px" fxFlex.xs="100%">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title>
+        Main menu
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-nav-list>
+        <mat-list-item *ngIf="newSets?.length > 0">
+          <mat-icon mat-list-icon>
+            circle_notifications
+          </mat-icon>
+          <a routerLink="/maintenance">
+            <span [matBadge]="newSets.length" matBadgeColor="warn" matBadgeOverlap="false">
+              There are new sets ready for importing
+            </span>
+          </a>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>
+            library_books
+          </mat-icon>
+          <a routerLink="/collections">
+            My collection
+          </a>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>
+            shopping_cart
+          </mat-icon>
+          <a routerLink="/cardmarket">
+            Cardmarket
+          </a>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>
+            bar_chart
+          </mat-icon>
+          <a routerLink="/maintenance">
+            Database maintenance
+          </a>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>
+            bar_chart
+          </mat-icon>
+          <a routerLink="/cardmarket">
+            Statistics
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-card-content>
+  </mat-card>
+</section>
