@@ -9,3 +9,7 @@ img {
 a {
   color: white;
 }
+
+table {
+  width: 100%!important;
+}

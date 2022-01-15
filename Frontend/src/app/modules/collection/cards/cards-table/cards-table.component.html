@@ -30,7 +30,7 @@
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
-      <table fxFlex="100%" mat-table [dataSource]="dataSource" matSort>
+      <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="quantity">
           <th mat-header-cell *matHeaderCellDef>
             Qt.
@@ -121,6 +121,7 @@
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <tr mat-row *matRowDef="let row; columns: columns"></tr>
       </table>
+      <mat-paginator showFirstLastButtons [pageSizeOptions]="[20, 50, 100]"></mat-paginator>
     </mat-card-content>
   </mat-card>
 </section>

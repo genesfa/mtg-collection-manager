@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ManaCost} from "../../models/mana-cost";
+import {ManaCost} from "../../models/collection/mana-cost";
 
 @Component({
   selector: 'app-mana-cost',

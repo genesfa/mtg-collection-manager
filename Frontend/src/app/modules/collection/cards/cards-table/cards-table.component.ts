@@ -5,6 +5,7 @@ import {CardModify} from "../../../../shared/models/collection/card/card-modify"
 import {SetResource} from "../../../../shared/models/collection/set/set-resource";
 import {MatSort} from "@angular/material/sort";
 import {SetStats} from "../../../../shared/models/collection/set/set-stats";
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-cards-table',
@@ -18,11 +19,14 @@ export class CardsTableComponent implements OnInit {
 
   dataSource = new MatTableDataSource<CardResource>();
   columns: string[] = ['quantity', 'image_data', 'rarity', 'collectorNumber', 'nonFoilPrice', 'foilPrice'];
+
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @Input() set cards(value: CardResource[]) {
     this.dataSource.data = value;
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   @Output()

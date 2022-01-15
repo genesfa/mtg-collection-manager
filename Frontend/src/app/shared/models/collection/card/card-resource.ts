@@ -13,4 +13,5 @@ export class CardResource {
   nonFoil: number;
   foil: number;
   colors: string[];
+  productId: number;
 }

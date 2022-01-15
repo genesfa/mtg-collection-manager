@@ -113,7 +113,8 @@ export class CardsComponent implements OnInit {
   }
 
   createWantlist() {
-    // TODO: por hacer
-    alert('Crea wantlist con las cartas que faltan en la colección');
+    let productIds = this._cards.filter(value => value.nonFoil === 0 && value.foil === 0).map(value => value.productId);
+    // TODO: crea la wantlist con nombre => code_name
+    // TODO: con el id de la wantlist, va añadiendo una a una las cartas
   }
 }

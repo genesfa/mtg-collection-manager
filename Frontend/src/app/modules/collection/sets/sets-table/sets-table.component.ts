@@ -9,8 +9,7 @@ import {MatTableDataSource} from "@angular/material/table";
 })
 export class SetsTableComponent implements OnInit {
 
-  @Input()
-  set sets(value: SetResource[]) {
+  @Input() set sets(value: SetResource[]) {
     this.dataSource.data = value;
   }
 
