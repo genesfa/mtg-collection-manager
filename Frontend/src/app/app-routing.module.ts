@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path: 'collections',
         loadChildren: () => import('./modules/collection/collection.module').then(m => m.CollectionModule)
+      },
+      {
+        path: 'cardmarket',
+        loadChildren: () => import('./modules/cardmarket/cardmarket.module').then(m => m.CardmarketModule)
       }
     ]
   }
