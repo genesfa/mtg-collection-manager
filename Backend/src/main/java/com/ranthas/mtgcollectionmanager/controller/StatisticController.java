@@ -38,4 +38,10 @@ public class StatisticController {
     public long foilOwnedCardsBySet(@PathVariable String setId) {
         return statisticsService.calculateFoilOwnedCardsBySet(setId);
     }
+
+    @GetMapping(Endpoint.DIFFERENT_OWNED_CARDS_BY_SET)
+    @ResponseStatus(HttpStatus.OK)
+    public long differentOwnedCardsBySet(@PathVariable String setId) {
+        return statisticsService.calculateDifferentOwnedCards(setId);
+    }
 }

@@ -196,7 +196,7 @@ public class ScryfallCard {
     }
 
     public Integer getCardmarketId() {
-        return cardmarketId;
+        return cardmarketId == null ? -1 : cardmarketId;
     }
 
     public void setCardmarketId(Integer cardmarketId) {
@@ -473,5 +473,9 @@ public class ScryfallCard {
 
     public void setRarity(String rarity) {
         this.rarity = rarity;
+    }
+
+    public boolean isBasicLand() {
+        return typeLine.toUpperCase().startsWith("BASIC LAND");
     }
 }

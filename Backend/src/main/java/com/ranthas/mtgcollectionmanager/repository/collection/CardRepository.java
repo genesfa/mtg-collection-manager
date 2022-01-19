@@ -20,4 +20,7 @@ public interface CardRepository extends MongoRepository<Card, ObjectId> {
 
     @Query("{ 'set.id': ?0, 'foilQuantity': { $gt: 0 } }")
     List<Card> findAllFoilOwnedBySetId(String setId);
+
+    @Query("{ 'set.id': ?0, '$or': [ { 'nonFoilQuantity': { $gt: 0 } }, { 'foilQuantity': { $gt: 0 } } ] }")
+    List<Card> findAllOwnedBySetId(String setId);
 }

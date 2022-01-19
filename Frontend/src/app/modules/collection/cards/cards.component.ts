@@ -12,6 +12,8 @@ import {SetResource} from "../../../shared/models/collection/set/set-resource";
 import {zip} from "rxjs";
 import {StatisticService} from "../../../core/http/statistic.service";
 import {SetStats} from "../../../shared/models/collection/set/set-stats";
+import {CardmarketService} from "../../../core/http/cardmarket.service";
+import {CreateWantlistRequest} from "../../../shared/models/collection/cardmarket/create-wantlist-request";
 
 @Component({
   selector: 'app-cards',
@@ -33,7 +35,8 @@ export class CardsComponent implements OnInit {
     private collectionService: CollectionService,
     private statisticService: StatisticService,
     private storage: StorageService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private cardmarketService: CardmarketService
   ) { }
 
   ngOnInit(): void {
@@ -62,13 +65,15 @@ export class CardsComponent implements OnInit {
     this.setStats = new SetStats();
     const observable = zip(
       this.statisticService.nonFoilOwnedCardsBySet(this.setId),
-      this.statisticService.foilOwnedCardsBySet(this.setId)
+      this.statisticService.foilOwnedCardsBySet(this.setId),
+      this.statisticService.differentOwnedCardsBySet(this.setId)
     );
 
     observable.subscribe(
       response => {
         this.setStats.nonFoilOwned = (response[0] / this.setData.cardCount) * 100;
         this.setStats.foilOwned = (response[1] / this.setData.cardCount) * 100;
+        this.setStats.differentOwned = response[2];
       }
     )
   }
@@ -112,9 +117,11 @@ export class CardsComponent implements OnInit {
         });
   }
 
-  createWantlist() {
-    let productIds = this._cards.filter(value => value.nonFoil === 0 && value.foil === 0).map(value => value.productId);
-    // TODO: crea la wantlist con nombre => code_name
-    // TODO: con el id de la wantlist, va añadiendo una a una las cartas
+  createWantlist(): void {
+    const productIds = this._cards.filter(value => value.nonFoil === 0 && value.foil === 0).map(value => value.productId);
+    const request = new CreateWantlistRequest(this.setData?.name, productIds);
+    this.cardmarketService
+        .createWantList(request)
+        .subscribe(response => console.log(response));
   }
 }

@@ -41,7 +41,8 @@ public class CollectionCardConverter implements Converter<Card, CardResource> {
                 foilPrice,
                 source.getNonFoilQuantity(),
                 source.getFoilQuantity(),
-                source.getData().getColors()
+                source.getData().getColors(),
+                source.getData().getCardmarketId()
         );
     }
 }

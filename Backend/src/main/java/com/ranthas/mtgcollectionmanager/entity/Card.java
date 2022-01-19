@@ -74,23 +74,7 @@ public class Card {
         return Objects.hash(id);
     }
 
-    public void addFoil() {
-        foilQuantity++;
-    }
-
-    public void removeFoil() {
-        if (foilQuantity > 0) {
-            foilQuantity--;
-        }
-    }
-
-    public void addNonFoil() {
-        nonFoilQuantity++;
-    }
-
-    public void removeNonFoil() {
-        if (nonFoilQuantity > 0) {
-            foilQuantity--;
-        }
+    public boolean isBasicLand() {
+        return data.isBasicLand();
     }
 }

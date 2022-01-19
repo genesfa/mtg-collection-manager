@@ -17,4 +17,8 @@ export class StatisticService {
   foilOwnedCardsBySet(setId: string): Observable<number> {
     return this.http.get<number>(`${environment.apiBaseURL}/collection/sets/${setId}/owned/foil`);
   }
+
+  differentOwnedCardsBySet(setId: string): Observable<number> {
+    return this.http.get<number>(`${environment.apiBaseURL}/collection/sets/${setId}/owned/different`);
+  }
 }

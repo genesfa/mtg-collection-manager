@@ -16,6 +16,7 @@ public class CardResource {
     private final int nonFoil;
     private final int foil;
     private final List<String> colors;
+    private final int productId;
 
     public CardResource(
             String id,
@@ -29,7 +30,8 @@ public class CardResource {
             Double foilPrice,
             int nonFoil,
             int foil,
-            List<String> colors
+            List<String> colors,
+            int productId
     ) {
         this.id = id;
         this.name = name;
@@ -43,6 +45,7 @@ public class CardResource {
         this.nonFoil = nonFoil;
         this.foil = foil;
         this.colors = colors;
+        this.productId = productId;
     }
 
     public String getId() {
@@ -91,5 +94,9 @@ public class CardResource {
 
     public List<String> getColors() {
         return colors;
+    }
+
+    public int getProductId() {
+        return productId;
     }
 }
