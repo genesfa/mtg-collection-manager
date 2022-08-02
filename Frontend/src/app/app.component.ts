@@ -1,7 +1,4 @@
-import {Component} from '@angular/core';
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter, map} from "rxjs/operators";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,26 +7,7 @@ import {filter, map} from "rxjs/operators";
 })
 export class AppComponent {
 
-  constructor(
-    private titleService: Title,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
-
-  ngOnInit() {
-    const title = this.titleService.getTitle();
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => {
-        let child = this.activatedRoute.firstChild;
-        while (child.firstChild) {
-          child = child.firstChild;
-        }
-        if (child.snapshot.data['title']) {
-          return child.snapshot.data['title'];
-        }
-        return title;
-      })
-    ).subscribe((ttl: string) => this.titleService.setTitle(ttl));
-  }
+  title = 'test-mtg';
+  card: any = JSON.parse('{"object":"card","id":"04897d8c-ee05-45eb-80f7-76487dbcc449","oracle_id":"03ebc100-68ac-4d53-adc2-d537212f7d31","multiverse_ids":[555362],"mtgo_id":98541,"arena_id":80312,"tcgplayer_id":268794,"cardmarket_id":651851,"name":"Venom Connoisseur","lang":"en","released_at":"2022-04-29","uri":"https://api.scryfall.com/cards/04897d8c-ee05-45eb-80f7-76487dbcc449","scryfall_uri":"https://scryfall.com/card/snc/161/venom-connoisseur?utm_source=api","layout":"normal","highres_image":true,"image_status":"highres_scan","image_uris":{"small":"https://c1.scryfall.com/file/scryfall-cards/small/front/0/4/04897d8c-ee05-45eb-80f7-76487dbcc449.jpg?1649801166","normal":"https://c1.scryfall.com/file/scryfall-cards/normal/front/0/4/04897d8c-ee05-45eb-80f7-76487dbcc449.jpg?1649801166","large":"https://c1.scryfall.com/file/scryfall-cards/large/front/0/4/04897d8c-ee05-45eb-80f7-76487dbcc449.jpg?1649801166","png":"https://c1.scryfall.com/file/scryfall-cards/png/front/0/4/04897d8c-ee05-45eb-80f7-76487dbcc449.png?1649801166","art_crop":"https://c1.scryfall.com/file/scryfall-cards/art_crop/front/0/4/04897d8c-ee05-45eb-80f7-76487dbcc449.jpg?1649801166","border_crop":"https://c1.scryfall.com/file/scryfall-cards/border_crop/front/0/4/04897d8c-ee05-45eb-80f7-76487dbcc449.jpg?1649801166"},"mana_cost":"{1}{G}","cmc":2.0,"type_line":"Creature — Human Druid","oracle_text":"Alliance — Whenever another creature enters the battlefield under your control, Venom Connoisseur gains deathtouch until end of turn. If this is the second time this ability has resolved this turn, all creatures you control gain deathtouch until end of turn.","power":"2","toughness":"2","colors":["G"],"color_identity":["G"],"keywords":["Alliance"],"legalities":{"standard":"legal","future":"legal","historic":"legal","gladiator":"legal","pioneer":"legal","explorer":"legal","modern":"legal","legacy":"legal","pauper":"not_legal","vintage":"legal","penny":"legal","commander":"legal","brawl":"legal","historicbrawl":"legal","alchemy":"legal","paupercommander":"restricted","duel":"legal","oldschool":"not_legal","premodern":"not_legal"},"games":["paper","mtgo","arena"],"reserved":false,"foil":true,"nonfoil":true,"finishes":["nonfoil","foil"],"oversized":false,"promo":false,"reprint":false,"variation":false,"set_id":"df837242-8c15-42e4-b049-c933a02dc501","set":"snc","set_name":"Streets of New Capenna","set_type":"expansion","set_uri":"https://api.scryfall.com/sets/df837242-8c15-42e4-b049-c933a02dc501","set_search_uri":"https://api.scryfall.com/cards/search?order=set\u0026q=e%3Asnc\u0026unique=prints","scryfall_set_uri":"https://scryfall.com/sets/snc?utm_source=api","rulings_uri":"https://api.scryfall.com/cards/04897d8c-ee05-45eb-80f7-76487dbcc449/rulings","prints_search_uri":"https://api.scryfall.com/cards/search?order=released\u0026q=oracleid%3A03ebc100-68ac-4d53-adc2-d537212f7d31\u0026unique=prints","collector_number":"161","digital":false,"rarity":"uncommon","watermark":"cabaretti","card_back_id":"0aeebaf5-8c7d-4636-9e82-8c27447861f7","artist":"Marta Nael","artist_ids":["266ab861-ed64-4ba5-865c-f18758421cc3"],"illustration_id":"1e24ca29-9bf9-4835-889a-3fc74103bd6b","border_color":"black","frame":"2015","full_art":false,"textless":false,"booster":true,"story_spotlight":false,"edhrec_rank":13549,"preview":{"source":"Game Informer","source_uri":"https://www.gameinformer.com/2022/04/12/exclusive-magic-the-gathering-streets-of-new-capenna-preview-card","previewed_at":"2022-04-12"},"prices":{"usd":"0.03","usd_foil":"0.06","usd_etched":null,"eur":"0.02","eur_foil":"0.12","tix":"0.01"},"related_uris":{"gatherer":"https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=555362","tcgplayer_infinite_articles":"https://infinite.tcgplayer.com/search?contentMode=article\u0026game=magic\u0026partner=scryfall\u0026q=Venom+Connoisseur\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall","tcgplayer_infinite_decks":"https://infinite.tcgplayer.com/search?contentMode=deck\u0026game=magic\u0026partner=scryfall\u0026q=Venom+Connoisseur\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall","edhrec":"https://edhrec.com/route/?cc=Venom+Connoisseur"},"purchase_uris":{"tcgplayer":"https://www.tcgplayer.com/product/268794?page=1\u0026utm_campaign=affiliate\u0026utm_medium=api\u0026utm_source=scryfall","cardmarket":"https://www.cardmarket.com/en/Magic/Products/Search?referrer=scryfall\u0026searchString=Venom+Connoisseur\u0026utm_campaign=card_prices\u0026utm_medium=text\u0026utm_source=scryfall","cardhoarder":"https://www.cardhoarder.com/cards/98541?affiliate_id=scryfall\u0026ref=card-profile\u0026utm_campaign=affiliate\u0026utm_medium=card\u0026utm_source=scryfall"}}');
+  set: any = JSON.parse('{"object":"set","id":"df837242-8c15-42e4-b049-c933a02dc501","code":"snc","mtgo_code":"snc","arena_code":"snc","tcgplayer_id":3026,"name":"Streets of New Capenna","uri":"https://api.scryfall.com/sets/df837242-8c15-42e4-b049-c933a02dc501","scryfall_uri":"https://scryfall.com/sets/snc","search_uri":"https://api.scryfall.com/cards/search?include_extras=true\u0026include_variations=true\u0026order=set\u0026q=e%3Asnc\u0026unique=prints","released_at":"2022-04-29","set_type":"expansion","card_count":467,"printed_size":281,"digital":false,"nonfoil_only":false,"foil_only":false,"icon_svg_uri":"https://c2.scryfall.com/file/scryfall-symbols/sets/snc.svg?1655092800"}');
 }

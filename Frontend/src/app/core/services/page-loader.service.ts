@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
@@ -9,14 +9,9 @@ export class PageLoaderService {
   private _loading = new BehaviorSubject<boolean>(false);
   public readonly loading$ = this._loading.asObservable();
 
-  constructor() {
-  }
+  constructor() { }
 
-  show(): void {
-    this._loading.next(true);
-  }
+  show = () => this._loading.next(true);
 
-  hide(): void {
-    this._loading.next(false);
-  }
+  hide = () => this._loading.next(false);
 }

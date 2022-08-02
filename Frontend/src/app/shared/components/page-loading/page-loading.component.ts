@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {PageLoaderService} from "../../../core/services/page-loader.service";
 
 @Component({
